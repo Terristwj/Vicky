@@ -1,75 +1,113 @@
+import vicky from "../../img/Viiicky.png";
 import * as React from "react";
-import { Outlet } from "react-router-dom";
-
-import updateSession from "../../store/session";
-import { useSelector, useDispatch } from "react-redux";
-import { set } from "../../store/navSlice";
-
+import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import Container from "@mui/material/Container";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import { CardMedia } from "@mui/material";
 
-function samePageLinkNavigation(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-) {
-    if (
-        event.defaultPrevented ||
-        event.button !== 0 || // ignore everything but left-click
-        event.metaKey ||
-        event.ctrlKey ||
-        event.altKey ||
-        event.shiftKey
-    ) {
-        return false;
-    }
-    return true;
-}
+const settings = ["item 1", "item 2", "item 3"];
 
-interface LinkTabProps {
-    label?: string;
-    href?: string;
-}
+function ResponsiveAppBar() {
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+        null
+    );
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+        null
+    );
 
-function LinkTab(props: LinkTabProps) {
-    return <Tab component="a" {...props} />;
-}
-
-export default function NavTabs() {
-    // Redux Store
-    const navValue = useSelector((state: any) => state.nav.count);
-    const dispatch = useDispatch();
-
-    // When a new tab is selected, update the redux store and session store
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        // event.type can be equal to focus with selectionFollowsFocus.
-        if (
-            event.type !== "click" ||
-            (event.type === "click" &&
-                samePageLinkNavigation(
-                    event as React.MouseEvent<HTMLAnchorElement, MouseEvent>
-                ))
-        ) {
-            dispatch(set(newValue));
-            updateSession("nav", newValue);
-        }
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElUser(event.currentTarget);
     };
 
-    // For debugging the current tab index
-    // console.log("navValue: ", navValue);
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     return (
-        <Box sx={{ width: "100%" }}>
-            <Tabs
-                value={navValue}
-                onChange={handleChange}
-                aria-label="nav tabs example"
-                centered
-            >
-                <LinkTab label="Home" href="/" />
-                <LinkTab label="Landing page" href="/landingpage" />
-                <LinkTab label="404 pages" href="/something" />
-            </Tabs>
-            <Outlet />
-        </Box>
+        <AppBar position="static" style={{ background: "#DEE1E6" }}>
+            <Container maxWidth="xl">
+                <Toolbar>
+                    <CardMedia
+                        component="img"
+                        image={vicky}
+                        title="Vicky logo"
+                        sx={{ margin: "16px 0 6px", height: "50px", width: "auto"}}
+                    />
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: "flex", md: "none" },
+                        }}
+                    >
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
+                        ></IconButton>
+                    </Box>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: "none", md: "flex" },
+                        }}
+                    ></Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip title="Open settings">
+                            <IconButton
+                                onClick={handleOpenUserMenu}
+                                sx={{ mr: 20 }}
+                            >
+                                Settings
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: "45px" }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: "top",
+                                horizontal: "right",
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: "top",
+                                horizontal: "right",
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {settings.map((setting) => (
+                                <MenuItem
+                                    key={setting}
+                                    onClick={handleCloseUserMenu}
+                                >
+                                    <Typography textAlign="center">
+                                        {setting}
+                                    </Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
     );
 }
+export default ResponsiveAppBar;
