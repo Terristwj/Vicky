@@ -32,9 +32,12 @@ Currently, these are the data stored:
     -   MUI components
     -   TailwindCSS
     -   PWA installation
-    -   Dependencies
+    -   Npm Dependencies
         -   Redux & Redux Toolkit
         -   React-router
+        -   Tailwind-merge
+        -   Fast-average-color
+        -   Hex-color-to-color-name
 
 -   Backend
     -WIP

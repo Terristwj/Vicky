@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
 import { CardMedia } from "@mui/material";
@@ -17,7 +18,28 @@ import Toolbar from "@mui/material/Toolbar";
 import vicky from "../../img/Viiicky.png";
 
 // Items for settings menu
-const settings = ["item 1", "item 2", "item 3"];
+const settings = [
+    {
+        name: "item 1",
+        pageTitle: "something",
+        path: "/something",
+    },
+    {
+        name: "Home",
+        pageTitle: "Home",
+        path: "/",
+    },
+    {
+        name: "Landing Page",
+        pageTitle: "LandingPage",
+        path: "/landingpage",
+    },
+    {
+        name: "Find Color",
+        pageTitle: "ColorIdentifier",
+        path: "/coloridentifier",
+    },
+];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -108,14 +130,16 @@ function ResponsiveAppBar() {
                                 onClose={handleCloseUserMenu}
                             >
                                 {settings.map((setting) => (
-                                    <MenuItem
-                                        key={setting}
-                                        onClick={handleCloseUserMenu}
+                                    <Link
+                                        key={setting.pageTitle}
+                                        to={setting.path}
                                     >
-                                        <Typography textAlign="center">
-                                            {setting}
-                                        </Typography>
-                                    </MenuItem>
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            <Typography textAlign="center">
+                                                {setting.name}
+                                            </Typography>
+                                        </MenuItem>
+                                    </Link>
                                 ))}
                             </Menu>
                         </Box>
