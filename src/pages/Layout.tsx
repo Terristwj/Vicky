@@ -1,22 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
+import NavTabs from "../components/navigation/NavTabs";
 
-const Layout = () => {
+function Layout() {
     return (
         <>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/landingpage">LandingPage</Link>
-                    </li>
-                </ul>
-            </nav>
-
-            <Outlet />
+            <NavTabs />
         </>
     );
-};
+}
 
 export default Layout;
