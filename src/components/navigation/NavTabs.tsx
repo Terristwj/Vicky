@@ -1,5 +1,9 @@
 import * as React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import updateSession from "../../store/session";
+import { useSelector, useDispatch } from "react-redux";
+import { set } from "../../store/navSlice";
 
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
@@ -31,8 +35,11 @@ function LinkTab(props: LinkTabProps) {
 }
 
 export default function NavTabs() {
-    const [value, setValue] = React.useState(0);
+    // Redux Store
+    const navValue = useSelector((state: any) => state.nav.count);
+    const dispatch = useDispatch();
 
+    // When a new tab is selected, update the redux store and session store
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         // event.type can be equal to focus with selectionFollowsFocus.
         if (
@@ -42,14 +49,18 @@ export default function NavTabs() {
                     event as React.MouseEvent<HTMLAnchorElement, MouseEvent>
                 ))
         ) {
-            setValue(newValue);
+            dispatch(set(newValue));
+            updateSession("nav", newValue);
         }
     };
+
+    // For debugging the current tab index
+    // console.log("navValue: ", navValue);
 
     return (
         <Box sx={{ width: "100%" }}>
             <Tabs
-                value={value}
+                value={navValue}
                 onChange={handleChange}
                 aria-label="nav tabs example"
                 centered
