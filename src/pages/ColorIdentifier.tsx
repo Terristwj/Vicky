@@ -6,17 +6,40 @@ import Box from "@mui/material/Grid";
 import { IconButton } from "@mui/material";
 import PhotoCameraRoundedIcon from "@mui/icons-material/PhotoCameraRounded";
 
-import { cn } from "../utils/tailwind";
+// Color Identifier plugins
+import { FastAverageColor } from "fast-average-color";
+import { GetColorName } from "hex-color-to-color-name";
 
 function ColorIdentifier() {
     const [source, setSource] = useState("");
+    const [colorName, setColorName] = useState("");
+    const [colorHex, setColorHex] = useState("");
+    const [colorIsLight, setColorIsLight] = useState(false);
 
     const handleCapture = (target: any) => {
         if (target.files) {
             if (target.files.length !== 0) {
                 const file = target.files[0];
                 const newUrl = URL.createObjectURL(file);
+
+                // Display the image
                 setSource(newUrl);
+
+                // Get the color
+                const fac = new FastAverageColor();
+                fac.getColorAsync(newUrl)
+                    .then((color) => {
+                        // console.log(color);
+                        setColorHex(color.hex);
+                        setColorName(GetColorName(color.hex.slice(1)));
+                        setColorIsLight(color.isLight);
+
+                        // container.style.backgroundColor = color.rgba;
+                        // container.style.color = color.isDark ? "#fff" : "#000";
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
             }
         }
     };
@@ -34,7 +57,7 @@ function ColorIdentifier() {
                                 display="flex"
                                 justifyContent="center"
                                 border={1}
-                                className="w-10/12 max-w-sm mx-auto my-5"
+                                className="w-10/12 max-w-sm mx-auto mt-5 mb-2"
                             >
                                 <img
                                     src={source}
@@ -65,6 +88,33 @@ function ColorIdentifier() {
                             </IconButton>
                         </label>
                     </Grid>
+
+                    {source && (
+                        <Grid item xs={12} className="border-t border-black">
+                            <br />
+                            <div
+                                style={{
+                                    backgroundColor: colorHex,
+                                    width: "50px",
+                                    height: "50px",
+                                    margin: "0px auto 15px",
+                                }}
+                            ></div>
+                            <h1 className="text-2xl font-bold indieFlower">
+                                Your color is:&nbsp;
+                                <span
+                                    style={{
+                                        color: colorHex,
+                                        backgroundColor: colorIsLight
+                                            ? "black"
+                                            : "white",
+                                    }}
+                                >
+                                    &nbsp;{colorName}&nbsp;
+                                </span>
+                            </h1>
+                        </Grid>
+                    )}
                 </Grid>
             </Container>
         </div>
