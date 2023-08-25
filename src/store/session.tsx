@@ -17,3 +17,25 @@ export default function updateSession(itemId: string, newItem: any) {
         sessionStorage.setItem("store", JSON.stringify(sessionStore));
     }
 }
+
+/**
+ *  How to use this function:
+ *
+ *  // E.g., Update nav value
+ *  import { updateSession } from "../../store/session";
+ *  import { useSelector, useDispatch } from "react-redux";
+ *  import { set } from "../../store/navSlice";
+ *
+ *  // Redux Store
+ *  export default function ...(){
+ *      // Redux Store
+ *      const navValue = useSelector((state: any) => state.nav.count);
+ *      const dispatch = useDispatch();
+ *      ...
+ *      
+ *      let newValue = 1;
+ *     // Update session store
+ *      dispatch(set(newValue));
+        updateSession("nav", newValue);
+ *  }
+ */

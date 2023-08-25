@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <Router />;
+            <Router />
         </Provider>
     </React.StrictMode>
 );
