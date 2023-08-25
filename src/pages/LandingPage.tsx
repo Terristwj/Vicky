@@ -1,9 +1,20 @@
+import Container from "@mui/material/Container";
+
 function LandingPage() {
     return (
         <>
-            <h1>Landing page</h1>
+            <div className="h-96">
+                <div className="p-[24px]">
+                    <Container maxWidth="xl">
+                        <h1 className="text-2xl">Landing Page</h1>
+                    </Container>
+                </div>
+            </div>
+            <div className="bg-gray-200 h-96"></div>
+            <div className="bg-gray-400 h-96"></div>
+            <div className="bg-gray-800 h-96"></div>
         </>
     );
-};
+}
 
 export default LandingPage;
