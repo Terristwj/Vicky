@@ -5,3 +5,10 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
+
+/**
+ *  Usage:
+ *  import { cn } from "../utils/tailwind";
+ *  ...
+ *  <div className={cn("text-center", "text-4xl", "font-bold")}>
+ */
