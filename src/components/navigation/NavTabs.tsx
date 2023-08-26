@@ -20,6 +20,8 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 
 import vicky from "../../img/Viiicky.png";
+import MenuIcon from "@mui/icons-material/Menu";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // Items for settings menu
 const settings = [
@@ -47,7 +49,7 @@ const settings = [
 
 function ResponsiveAppBar() {
     let navigate = useNavigate();
-
+    const [clicked, setClicked] = React.useState(false);
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
     );
@@ -59,6 +61,7 @@ function ResponsiveAppBar() {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setClicked(true);
         setAnchorElUser(event.currentTarget);
     };
 
@@ -67,6 +70,7 @@ function ResponsiveAppBar() {
     };
 
     const handleCloseUserMenu = () => {
+        setClicked(false);
         setAnchorElUser(null);
     };
 
@@ -141,7 +145,7 @@ function ResponsiveAppBar() {
                         ></Box>
 
                         <Box sx={{ flexGrow: 0, display: { md: "none" } }}>
-                            <Tooltip title="Open settings">
+                            <Tooltip title="More options">
                                 <IconButton
                                     onClick={handleOpenUserMenu}
                                     sx={{
@@ -149,7 +153,11 @@ function ResponsiveAppBar() {
                                         color: "#000000",
                                     }}
                                 >
-                                    Settings
+                                    {clicked ? (
+                                        <ExpandMoreIcon />
+                                    ) : (
+                                        <MenuIcon />
+                                    )}
                                 </IconButton>
                             </Tooltip>
                             <Menu
