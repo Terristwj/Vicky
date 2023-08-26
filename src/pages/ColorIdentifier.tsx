@@ -22,9 +22,8 @@ function ColorIdentifier() {
         if (target.files.length !== 0) {
             // Check if the file is an image or video
             if (
-                ["image/gif", "image/jpeg", "image/png"].includes(
-                    target.files[0]["type"]
-                )
+                target.files[0]["type"].includes("image/") ||
+                target.files[0]["type"].includes("video/")
             ) {
                 const file = target.files[0];
                 const newUrl = URL.createObjectURL(file);
