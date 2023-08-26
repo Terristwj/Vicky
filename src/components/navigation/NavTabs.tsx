@@ -7,8 +7,12 @@ import { CardMedia } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+import Button from "@mui/material/Button";
+
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+
+import { useNavigate } from "react-router-dom";
 
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
@@ -16,32 +20,36 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 
 import vicky from "../../img/Viiicky.png";
+import MenuIcon from "@mui/icons-material/Menu";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // Items for settings menu
 const settings = [
-    {
-        name: "item 1",
-        pageTitle: "something",
-        path: "/something",
-    },
     {
         name: "Home",
         pageTitle: "Home",
         path: "/",
     },
     {
-        name: "Landing Page",
-        pageTitle: "LandingPage",
-        path: "/landingpage",
-    },
-    {
-        name: "Find Color",
+        name: "Color Identifier",
         pageTitle: "ColorIdentifier",
         path: "/coloridentifier",
+    },
+    {
+        name: "Experience",
+        pageTitle: "Experience",
+        path: "/a",
+    },
+    {
+        name: "Settings",
+        pageTitle: "Settings",
+        path: "/a",
     },
 ];
 
 function ResponsiveAppBar() {
+    let navigate = useNavigate();
+    const [clicked, setClicked] = React.useState(false);
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
     );
@@ -53,6 +61,7 @@ function ResponsiveAppBar() {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setClicked(true);
         setAnchorElUser(event.currentTarget);
     };
 
@@ -61,7 +70,16 @@ function ResponsiveAppBar() {
     };
 
     const handleCloseUserMenu = () => {
+        setClicked(false);
         setAnchorElUser(null);
+    };
+
+    const handleColor = () => {
+        navigate(settings[3].path);
+    };
+
+    const handleHome = () => {
+        navigate(settings[1].path);
     };
 
     return (
@@ -79,6 +97,31 @@ function ResponsiveAppBar() {
                                 width: "auto",
                             }}
                         />
+                        <Box
+                            justifyContent="center"
+                            alignItems="center"
+                            sx={{
+                                flexGrow: 1,
+                                display: { xs: "none", md: "flex" },
+                            }}
+                        ></Box>
+
+                        {settings.map((setting) => (
+                            <Button
+                                key={setting.pageTitle}
+                                onClick={() => {
+                                    navigate(setting.path);
+                                }}
+                                sx={{
+                                    my: 0,
+                                    color: "black",
+                                    display: { xs: "none", md: "flex" },
+                                }}
+                            >
+                                {setting.name}
+                            </Button>
+                        ))}
+
                         <Box
                             sx={{
                                 flexGrow: 1,
@@ -101,8 +144,8 @@ function ResponsiveAppBar() {
                             }}
                         ></Box>
 
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
+                        <Box sx={{ flexGrow: 0, display: { md: "none" } }}>
+                            <Tooltip title="More options">
                                 <IconButton
                                     onClick={handleOpenUserMenu}
                                     sx={{
@@ -110,7 +153,11 @@ function ResponsiveAppBar() {
                                         color: "#000000",
                                     }}
                                 >
-                                    Settings
+                                    {clicked ? (
+                                        <ExpandMoreIcon />
+                                    ) : (
+                                        <MenuIcon />
+                                    )}
                                 </IconButton>
                             </Tooltip>
                             <Menu

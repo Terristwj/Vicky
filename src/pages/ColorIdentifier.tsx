@@ -16,30 +16,37 @@ function ColorIdentifier() {
     const [colorHex, setColorHex] = useState("");
     const [colorIsLight, setColorIsLight] = useState(false);
 
+    // Insert the media into the DOM
     const handleCapture = (target: any) => {
-        if (target.files) {
-            if (target.files.length !== 0) {
+        // Check if the user uploaded a file
+        if (target.files.length !== 0) {
+            // Check if the file is an image or video
+            if (
+                ["image/gif", "image/jpeg", "image/png"].includes(
+                    target.files[0]["type"]
+                )
+            ) {
                 const file = target.files[0];
                 const newUrl = URL.createObjectURL(file);
 
-                // Display the image
+                // Display the media
                 setSource(newUrl);
 
                 // Get the color
                 const fac = new FastAverageColor();
                 fac.getColorAsync(newUrl)
                     .then((color) => {
-                        // console.log(color);
                         setColorHex(color.hex);
                         setColorName(GetColorName(color.hex.slice(1)));
                         setColorIsLight(color.isLight);
-
-                        // container.style.backgroundColor = color.rgba;
-                        // container.style.color = color.isDark ? "#fff" : "#000";
                     })
                     .catch((e) => {
                         console.log(e);
                     });
+            }
+            // If file is not an image or video
+            else {
+                alert("Please select an image or video file!");
             }
         }
     };
@@ -49,15 +56,42 @@ function ColorIdentifier() {
             <Container maxWidth="xl">
                 <Grid container>
                     <Grid item xs={12}>
-                        <h1 className="text-4xl font-bold indieFlower">
-                            Capture your image
+                        {/* Media Upload */}
+                        <h1 className="text-3xl font-bold align-text-bottom indieFlower">
+                            Choose a media type:&nbsp;
                         </h1>
+                        <div>
+                            <input
+                                id="media-input"
+                                className="hidden"
+                                type="file"
+                                capture="environment"
+                                onChange={(e) => handleCapture(e.target)}
+                            />
+                            <label
+                                htmlFor="media-input"
+                                className="block h-full"
+                            >
+                                <IconButton
+                                    color="primary"
+                                    aria-label="upload picture"
+                                    component="span"
+                                >
+                                    <PhotoCameraRoundedIcon
+                                        sx={{ fontSize: 50 }}
+                                        color="primary"
+                                    />
+                                </IconButton>
+                            </label>
+                        </div>
+                        {/* Media Upload END */}
+                        {/* Captured Media */}
                         {source && (
                             <Box
                                 display="flex"
                                 justifyContent="center"
                                 border={1}
-                                className="w-10/12 max-w-sm mx-auto mt-5 mb-2"
+                                className="w-10/12 max-w-sm mx-auto mb-1"
                             >
                                 <img
                                     src={source}
@@ -67,41 +101,27 @@ function ColorIdentifier() {
                                 ></img>
                             </Box>
                         )}
-                        <input
-                            accept="image/*"
-                            className="hidden"
-                            id="icon-button-file"
-                            type="file"
-                            capture="environment"
-                            onChange={(e) => handleCapture(e.target)}
-                        />
-                        <label htmlFor="icon-button-file">
-                            <IconButton
-                                color="primary"
-                                aria-label="upload picture"
-                                component="span"
-                            >
-                                <PhotoCameraRoundedIcon
-                                    fontSize="large"
-                                    color="primary"
-                                />
-                            </IconButton>
-                        </label>
+                        {/* Captured Media END */}
                     </Grid>
 
+                    {/* Media Response */}
                     {source && (
-                        <Grid item xs={12} className="border-t border-black">
-                            <br />
+                        <Grid
+                            item
+                            xs={12}
+                            className="pt-1 border-t border-black"
+                        >
                             <div
                                 style={{
                                     backgroundColor: colorHex,
                                     width: "50px",
                                     height: "50px",
-                                    margin: "0px auto 15px",
+                                    margin: "0px auto 5px",
                                 }}
                             ></div>
                             <h1 className="text-2xl font-bold indieFlower">
-                                Your color is:&nbsp;
+                                The average color is
+                                <br />
                                 <span
                                     style={{
                                         color: colorHex,
@@ -115,6 +135,7 @@ function ColorIdentifier() {
                             </h1>
                         </Grid>
                     )}
+                    {/* Media Response END */}
                 </Grid>
             </Container>
         </div>
