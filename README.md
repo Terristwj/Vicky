@@ -2,42 +2,32 @@
 
 Ellipsis Tech Series 2023 Hackathon
 
-### To run this project
+### Project Setup Intro
 
-First time setup: `npm install`
-To run: `npm run start`
+|      Running this project       |                  Testing offline PWA                   |
+| :-----------------------------: | :----------------------------------------------------: |
+| First time setup: `npm install` |    1. `npm install -g serve`<br/>2. `npm run build`    |
+|     To run: `npm run start`     | 1. Test using: `serve -s build`<br/>2. Using localhost |
 
-### To Edit the navigation
+### Modifying the Project
 
-Visit the following codes in `src`:
+|                                       Edit the navigation                                       |               Making use of sessions               |
+| :---------------------------------------------------------------------------------------------: | :------------------------------------------------: |
+|                               Visit the following codes in `src`                                | This project uses sessions to store specific data. |
+| 1. `router > Router.tsx`<br/>2. `components > navigation > NavTabs`<br/>3. `pages > Layout.tsx` |     Visit the codes in 'store' to modify them.     |
 
-1. `router > Router.tsx`
-2. `components > navigation > NavTabs`
-3. `pages > Layout.tsx`
+### Tech stack (Frontend)
 
-### Making use sessions
+|      Frontend      |    Npm Dependencies     | React Npm Dependencies |   PWA Concepts    |
+| :----------------: | :---------------------: | :--------------------: | :---------------: |
+| React (TypeScript) |     Tailwind-merge      | Redux & Redux Toolkit  |  Service Workers  |
+|   MUI components   |   Fast-average-color    |      React-router      |  Manifest files   |
+|    TailwindCSS     | Hex-color-to-color-name |                        | Report Web Vitals |
 
-This project uses sessions to store specific data.
-Visit the codes in 'store' to modify them.
+### Tech stack (Frontend)
 
-Currently, these are the data stored:
-
-1. Current navigation tab
-
-### Tech stack
-
--   Frontend
-
-    -   React (TypeScript)
-    -   MUI components
-    -   TailwindCSS
-    -   PWA installation
-    -   Npm Dependencies
-        -   Redux & Redux Toolkit
-        -   React-router
-        -   Tailwind-merge
-        -   Fast-average-color
-        -   Hex-color-to-color-name
-
--   Backend
     -WIP
+
+### To whomever wanted to prettify the README.md
+
+-   Use this as [reference](https://github.com/DerrickLJH/EmotionBasedMusicRecommender/blob/master/README.md?plain=1)
