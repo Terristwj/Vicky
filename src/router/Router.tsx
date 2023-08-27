@@ -4,6 +4,7 @@ import Layout from "../pages/Layout";
 import Home from "../pages/Home/Home";
 import LandingPage from "../pages/LandingPage";
 import NoPage from "../pages/NoPage";
+import About from "../pages/About/About";
 
 import ColorIdentifier from "../pages/ColorIdentifier";
 
@@ -19,6 +20,7 @@ function Router() {
                         path="coloridentifier"
                         element={<ColorIdentifier />}
                     />
+                    <Route index path = "aboutus" element={<About />}/>
                     {/* <Route path="contact" element={<Contact />} /> */}
                     <Route path="*" element={<NoPage />} />
                 </Route>

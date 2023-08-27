@@ -41,9 +41,9 @@ const settings = [
         path: "/a",
     },
     {
-        name: "Settings",
-        pageTitle: "Settings",
-        path: "/a",
+        name: "About Us",
+        pageTitle: "About Us",
+        path: "/aboutus",
     },
 ];
 
