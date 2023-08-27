@@ -38,7 +38,7 @@ const settings = [
     {
         name: "Experience",
         pageTitle: "Experience",
-        path: "/a",
+        path: "/experience",
     },
     {
         name: "Settings",

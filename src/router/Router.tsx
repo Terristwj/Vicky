@@ -6,6 +6,7 @@ import LandingPage from "../pages/LandingPage";
 import NoPage from "../pages/NoPage";
 
 import ColorIdentifier from "../pages/ColorIdentifier";
+import Experience from "../pages/Experience";
 
 function Router() {
     return (
@@ -19,7 +20,7 @@ function Router() {
                         path="coloridentifier"
                         element={<ColorIdentifier />}
                     />
-                    {/* <Route path="contact" element={<Contact />} /> */}
+                    <Route path="experience" element={<Experience />} />
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
