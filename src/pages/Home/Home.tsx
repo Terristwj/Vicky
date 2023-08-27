@@ -41,7 +41,7 @@ const cards = [
       description: 'Experience first hand what it is like to be colourblind. Find out that even the smallest things that you might have taken for granted are actually problems faced by the colourblind. From shopping for clothes to even cooking meat with your friends are difficult for them.',
       image: 'https://feweek.co.uk/wp-content/uploads/2022/10/Colleen-Marshall-work-together-collaborate-feat.jpg',
       imageLabel: 'Image Text',
-      link: '#',
+      link: '/experience',
     },
     {
       title: 'About us',
