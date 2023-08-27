@@ -49,7 +49,7 @@ const cards = [
       description: 'We have a colourblind person in our group. At first, we joked around about his colourblindness but the more we listened, the more we realised that the issues he faced were not light at all. What more, the colour rectifing glasses from enchroma cost over 200 dollars which we thought was unreasonable since the ability to see colo...',
       image: 'https://i.imgur.com/Rby4U4E.jpeg',
       imageLabel: 'Image Text',
-      link: '#',
+      link: '/aboutus',
     }
   ];
 
