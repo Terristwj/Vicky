@@ -7,6 +7,7 @@ import NoPage from "../pages/NoPage";
 import About from "../pages/About/About";
 
 import ColorIdentifier from "../pages/ColorIdentifier";
+import Experience from "../pages/Experience";
 
 function Router() {
     return (
@@ -21,6 +22,7 @@ function Router() {
                         element={<ColorIdentifier />}
                     />
                     <Route index path = "aboutus" element={<About />}/>
+                    <Route path="experience" element={<Experience />} />
                     {/* <Route path="contact" element={<Contact />} /> */}
                     <Route path="*" element={<NoPage />} />
                 </Route>

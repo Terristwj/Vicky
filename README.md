@@ -22,7 +22,7 @@ Ellipsis Tech Series 2023 Hackathon
 | :----------------: | :---------------------: | :--------------------: | :---------------: |
 | React (TypeScript) |     Tailwind-merge      | Redux & Redux Toolkit  |  Service Workers  |
 |   MUI components   |   Fast-average-color    |      React-router      |  Manifest files   |
-|    TailwindCSS     | Hex-color-to-color-name |                        | Report Web Vitals |
+|    TailwindCSS     | Hex-color-to-color-name |      React-webcam      | Report Web Vitals |
 
 ### Tech stack (Frontend)
 
