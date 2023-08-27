@@ -8,7 +8,6 @@ import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Cards from "./Cards";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const banner = {
   title: "Welcome to",
@@ -22,7 +21,7 @@ const cards = [
       title: 'Enchroma Colour Blindness Test',
       date: 'Find out if you are colourblind!',
       description:
-        'There are an estimated 300 million people in the world with colour vision deficiency.',
+        'There are an estimated 300 million people in the world with colour vision deficiency. An average person typically sees up to 1 million shades of color. In the eyes of the colour blind, there is a greater overlap of the red and green cones sensitivity, reducing the number of shades seen by up to 90% and causing frequent color confusion.',
       image: 'https://blog.schoolspecialty.com/wp-content/uploads/2017/09/Color-Blindness-in-the-Art-Room.jpg',
       imageLabel: 'Image Text',
       link: 'https://enchroma.com/pages/color-blindness-test?format2=number'
@@ -36,6 +35,22 @@ const cards = [
       imageLabel: 'Image Text',
       link: '/coloridentifier',
     },
+    {
+      title: 'Experience what it\'s like to be Colour blind',
+      date: 'Try it now!',
+      description: 'Experience first hand what it is like to be colourblind. Find out that even the smallest things that you might have taken for granted are actually problems faced by the colourblind. From shopping for clothes to even cooking meat with your friends are difficult for them.',
+      image: 'https://feweek.co.uk/wp-content/uploads/2022/10/Colleen-Marshall-work-together-collaborate-feat.jpg',
+      imageLabel: 'Image Text',
+      link: '#',
+    },
+    {
+      title: 'About us',
+      date: 'Find out more!',
+      description: 'We have a colourblind person in our group. At first, we joked around about his colourblindness but the more we listened, the more we realised that the issues he faced were not light at all. What more, the colour rectifing glasses from enchroma cost over 200 dollars which we thought was unreasonable since the ability to see colo...',
+      image: 'https://i.imgur.com/Rby4U4E.jpeg',
+      imageLabel: 'Image Text',
+      link: '#',
+    }
   ];
 
 function Home() {
