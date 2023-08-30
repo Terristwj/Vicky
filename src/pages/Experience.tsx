@@ -20,7 +20,11 @@ import PauseIcon from "@mui/icons-material/Pause";
 function Experience() {
     const [isCameraInward, setIsCameraInward] = useState<boolean>(true);
     const [isCaptureEnable, setCaptureEnable] = useState<boolean>(false);
+
+    const webcamFilteredRef = useRef<Webcam>(null);
     const webcamRef = useRef<Webcam>(null);
+
+    const [urlFiltered, setUrlFiltered] = useState<string | null>(null);
     const [url, setUrl] = useState<string | null>(null);
 
     const [sketchPickerColor, setSketchPickerColor] = useState({
@@ -45,13 +49,25 @@ function Experience() {
     };
 
     // Capture Image
-    const capture = useCallback(() => {
+    const capture = () => {
+        captureImage();
+        captureFilteredImage();
+    };
+
+    const captureImage = useCallback(() => {
         const imageSrc = webcamRef.current?.getScreenshot();
         if (imageSrc) {
             setUrl(imageSrc);
-            console.log(imageSrc);
         }
     }, [webcamRef]);
+
+    // Capture Image with Filter
+    const captureFilteredImage = useCallback(() => {
+        const imageSrc = webcamFilteredRef.current?.getScreenshot();
+        if (imageSrc) {
+            setUrlFiltered(imageSrc);
+        }
+    }, [webcamFilteredRef]);
 
     return (
         <>
@@ -166,7 +182,7 @@ function Experience() {
                                 <div className="relative">
                                     <Webcam
                                         audio={false}
-                                        ref={webcamRef}
+                                        ref={webcamFilteredRef}
                                         screenshotFormat="image/jpeg"
                                         mirrored={isCameraInward ? true : false}
                                         videoConstraints={videoConstraints}
@@ -249,7 +265,7 @@ function Experience() {
                 {/* Camera Feed END */}
 
                 {/* Photo Capture */}
-                {url && (
+                {(url || urlFiltered) && (
                     <Grid
                         container
                         sx={{
@@ -266,50 +282,56 @@ function Experience() {
                             }}
                         >
                             {/* With Filter */}
-                            <Grid
-                                item
-                                xs={12}
-                                md={6}
-                                className="flex justify-end"
-                            >
-                                <div className="relative w-full">
-                                    <img
-                                        src={url}
-                                        className="w-full"
-                                        alt="Screenshot"
-                                    />
-                                    <div id="overlay">
-                                        <div
-                                            style={{
-                                                position: "absolute",
-                                                bottom: 0,
-                                                width: "100%",
-                                                height: "100%",
-                                                backgroundColor: `rgba(${r},${g},${b},${a})`,
-                                                opacity: 0.5,
-                                                zIndex: 2,
-                                            }}
-                                        ></div>
+                            {urlFiltered && (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    md={6}
+                                    className="flex justify-end"
+                                >
+                                    <div className="relative w-full">
+                                        <img
+                                            src={urlFiltered}
+                                            className="w-full"
+                                            alt="Screenshot"
+                                        />
+                                        <div id="overlay">
+                                            <div
+                                                style={{
+                                                    position: "absolute",
+                                                    bottom: 0,
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    backgroundColor: `rgba(${r},${g},${b},${a})`,
+                                                    opacity: 0.5,
+                                                    zIndex: 2,
+                                                }}
+                                            ></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </Grid>
+                                </Grid>
+                            )}
                             {/* With Filter END */}
 
                             {/* Without Filter */}
-                            <Grid
-                                item
-                                xs={12}
-                                md={6}
-                                sx={{ display: { xs: "none", md: "block" } }}
-                            >
-                                <div>
-                                    <img
-                                        src={url}
-                                        className="w-full"
-                                        alt="Screenshot"
-                                    />
-                                </div>
-                            </Grid>
+                            {url && (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    md={6}
+                                    sx={{
+                                        display: { xs: "none", md: "block" },
+                                    }}
+                                >
+                                    <div>
+                                        <img
+                                            src={url}
+                                            className="w-full"
+                                            alt="Screenshot"
+                                        />
+                                    </div>
+                                </Grid>
+                            )}
                             {/* Without Filter END */}
                         </Grid>
                         {/* Photo Capture Displays END */}
