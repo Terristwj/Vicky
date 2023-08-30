@@ -166,7 +166,6 @@ function Experience() {
                                 <div className="relative">
                                     <Webcam
                                         audio={false}
-                                        className="sm:w-[100%] lg:w-[540px]"
                                         ref={webcamRef}
                                         screenshotFormat="image/jpeg"
                                         mirrored={isCameraInward ? true : false}
@@ -193,7 +192,6 @@ function Experience() {
                             <Grid item xs={12} md={6}>
                                 <Webcam
                                     audio={false}
-                                    className="sm:w-[100%] lg:w-[540px]"
                                     ref={webcamRef}
                                     screenshotFormat="image/jpeg"
                                     mirrored={isCameraInward ? true : false}
@@ -269,7 +267,7 @@ function Experience() {
                                 md={6}
                                 className="flex justify-end"
                             >
-                                <div className="relative sm:w-[100%] lg:w-[540px]">
+                                <div className="relative">
                                     <img
                                         src={url}
                                         className="w-full"
@@ -294,7 +292,7 @@ function Experience() {
 
                             {/* Without Filter */}
                             <Grid item xs={12} md={6}>
-                                <div className="sm:w-[100%] lg:w-[540px]">
+                                <div>
                                     <img
                                         src={url}
                                         className="w-full"
