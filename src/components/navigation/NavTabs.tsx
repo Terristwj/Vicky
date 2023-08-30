@@ -26,9 +26,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // Items for settings menu
 const settings = [
     {
+        name: "Landing",
+        pageTitle: "LandingPage",
+        path: "/",
+    },
+    {
         name: "Home",
         pageTitle: "Home",
-        path: "/",
+        path: "/home",
     },
     {
         name: "Color Identifier",

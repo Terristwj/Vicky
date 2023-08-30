@@ -4,6 +4,7 @@
 
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
     margin: 0;
@@ -21,4 +22,8 @@ code {
 
 .indieFlower {
     font-family: "Indie Flower", cursive;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
 }
