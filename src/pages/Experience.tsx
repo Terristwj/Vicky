@@ -166,7 +166,7 @@ function Experience() {
                                 <div className="relative">
                                     <Webcam
                                         audio={false}
-                                        className="sm:w-[100%] lg:w-[540px] h-[100%]"
+                                        className="sm:w-[100%] lg:w-[540px]"
                                         ref={webcamRef}
                                         screenshotFormat="image/jpeg"
                                         mirrored={isCameraInward ? true : false}
@@ -193,7 +193,7 @@ function Experience() {
                             <Grid item xs={12} md={6}>
                                 <Webcam
                                     audio={false}
-                                    className="sm:w-[100%] lg:w-[540px] h-[100%]"
+                                    className="sm:w-[100%] lg:w-[540px]"
                                     ref={webcamRef}
                                     screenshotFormat="image/jpeg"
                                     mirrored={isCameraInward ? true : false}
@@ -272,7 +272,7 @@ function Experience() {
                                 <div className="relative sm:w-[100%] lg:w-[540px]">
                                     <img
                                         src={url}
-                                        className="w-full h-[100%]"
+                                        className="w-full"
                                         alt="Screenshot"
                                     />
                                     <div id="overlay">
@@ -297,7 +297,7 @@ function Experience() {
                                 <div className="sm:w-[100%] lg:w-[540px]">
                                     <img
                                         src={url}
-                                        className="w-full h-[100%]"
+                                        className="w-full"
                                         alt="Screenshot"
                                     />
                                 </div>
