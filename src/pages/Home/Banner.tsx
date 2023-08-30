@@ -1,69 +1,87 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-import vicky from '../../img/Viiicky (2).png';
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
+import vicky from "../../img/Viiicky (2).png";
 
 interface BannerProps {
-  post: {
-    description: string;
-    image: string;
-    imageText: string;
-    title: string;
-  };
+    post: {
+        description: string;
+        image: string;
+        imageText: string;
+        title: string;
+    };
 }
 
 export default function Banner(props: BannerProps) {
-  const { post } = props;
+    const { post } = props;
 
-  return (
-    <Paper elevation = {2}
-      sx={{
-        position: 'relative',
-        backgroundColor: 'grey.800',
-        color: '#fff',
-        mb: 4,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`,
-      }}
-    >
-      {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
-      <Box
-        sx={{
-          position: 'relative',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,.3)',
-        }}
-      />
-      <Grid container spacing = {4} alignItems = "center" justifyContent="center">
-        <Grid item md={6}>
-          <Box
+    return (
+        <Paper
+            elevation={2}
             sx={{
-              position: 'relative',
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
+                position: "relative",
+                color: "#fff",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundImage: `url(${post.image})`,
             }}
-          >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom align="center">
-              {post.title}
-            </Typography>
-            <Paper>
-                <img src={vicky} alt="Logo" width={150} height={150} className ="mx-auto"></img>
-            </Paper>
-            <Typography variant="h5" color="inherit" paragraph align = "center">
-              {post.description}
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Paper>
-  );
+        >
+            {/* Increase the priority of the hero background image */}
+            {
+                <img
+                    style={{ display: "none" }}
+                    src={post.image}
+                    alt={post.imageText}
+                />
+            }
+            <Grid
+                alignItems="center"
+                justifyContent="center"
+                sx={{
+                    paddingY: { xs: 5, md: 12 },
+                }}
+            >
+                <Box
+                    sx={{
+                        maxWidth: { xs: "325px", md: "400px", lg: "500px" },
+                        marginX: "auto",
+                    }}
+                >
+                    <Typography
+                        variant="h3"
+                        color="inherit"
+                        gutterBottom
+                        align="center"
+                        sx={{
+                            paddingY: { xs: "10px", md: "15px", lg: "20px" },
+                            backgroundColor: "rgba(66, 66, 66, 0.8)",
+                        }}
+                        marginBottom={0}
+                    >
+                        {post.title}
+                    </Typography>
+                    <Paper>
+                        <img src={vicky} alt="Logo" className="mx-auto"></img>
+                    </Paper>
+                    <Typography
+                        variant="h5"
+                        color="inherit"
+                        paragraph
+                        align="center"
+                        sx={{
+                            paddingY: { xs: "10px", md: "15px", lg: "20px" },
+                            backgroundColor: "rgba(66, 66, 66, 0.8)",
+                            m: 0,
+                        }}
+                        marginTop={0}
+                    >
+                        {post.description}
+                    </Typography>
+                </Box>
+            </Grid>
+        </Paper>
+    );
 }

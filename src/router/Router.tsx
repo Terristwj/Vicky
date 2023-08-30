@@ -15,15 +15,13 @@ function Router() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route path="/" element={<Home />} />
-                    <Route index path="landingpage" element={<LandingPage />} />
+                    <Route path="landingpage" element={<LandingPage />} />
                     <Route
-                        index
                         path="coloridentifier"
                         element={<ColorIdentifier />}
                     />
-                    <Route index path = "aboutus" element={<About />}/>
+                    <Route path="aboutus" element={<About />} />
                     <Route path="experience" element={<Experience />} />
-                    {/* <Route path="contact" element={<Contact />} /> */}
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
