@@ -189,7 +189,12 @@ function Experience() {
                             {/* With Filter END */}
 
                             {/* Without Filter */}
-                            <Grid item xs={12} md={6}>
+                            <Grid
+                                item
+                                xs={12}
+                                md={6}
+                                sx={{ display: { xs: "none", md: "block" } }}
+                            >
                                 <Webcam
                                     audio={false}
                                     ref={webcamRef}
@@ -267,7 +272,7 @@ function Experience() {
                                 md={6}
                                 className="flex justify-end"
                             >
-                                <div className="relative">
+                                <div className="relative w-full">
                                     <img
                                         src={url}
                                         className="w-full"
@@ -291,7 +296,12 @@ function Experience() {
                             {/* With Filter END */}
 
                             {/* Without Filter */}
-                            <Grid item xs={12} md={6}>
+                            <Grid
+                                item
+                                xs={12}
+                                md={6}
+                                sx={{ display: { xs: "none", md: "block" } }}
+                            >
                                 <div>
                                     <img
                                         src={url}
