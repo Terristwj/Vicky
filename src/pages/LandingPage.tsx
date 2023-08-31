@@ -250,7 +250,7 @@ function LandingPage() {
             {/* Team END */}
 
             {/* Video */}
-            <div className="px-5 py-12 bg-gray-800">
+            <div className="px-5 py-12 bg-gray-700">
                 <h2 className="mb-5 text-4xl font-bold text-center text-white">
                     <span className="montserrat">Video</span>
                 </h2>
@@ -268,9 +268,9 @@ function LandingPage() {
             {/* Video END */}
 
             {/* Photos */}
-            <div className="px-5 py-12 bg-gray-900">
+            <div className="px-5 py-12 bg-gray-800">
                 <h2 className="mb-5 text-4xl font-bold text-center text-white">
-                    <span className="montserrat">Video</span>
+                    <span className="montserrat">Photo</span>
                     <span className="indieFlower"> and </span>
                     <span className="montserrat">Award</span>
                 </h2>
@@ -295,6 +295,24 @@ function LandingPage() {
                 </Grid>
             </div>
             {/* Photos END */}
+
+            {/* Photos */}
+            <div className="px-5 py-12 bg-gray-900">
+                <h2 className="mb-5 text-4xl font-bold text-center text-white">
+                    <span className="montserrat">Presentation</span>
+                    &nbsp;
+                    <span className="indieFlower">Deck</span>
+                </h2>
+                <div className="w-full h-[230px] md:h-[400px] lg:h-[530px]">
+                    <iframe
+                        title="Presentation"
+                        className="w-full h-full"
+                        loading="lazy"
+                        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFs2rj4YTM&#x2F;view?embed"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </div>
         </>
     );
 }
