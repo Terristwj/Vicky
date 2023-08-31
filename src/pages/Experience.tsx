@@ -16,6 +16,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
+import Footer from "../components/Footer";
 
 function Experience() {
     const [isCameraInward, setIsCameraInward] = useState<boolean>(true);
@@ -72,7 +73,7 @@ function Experience() {
     return (
         <>
             <Grid container className="px-[48px] py-[24px] items-center">
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{ minHeight: "100vh" }}>
                     <div className="flex justify-center gap-10 mb-[24px">
                         {/* Block Picker from react-color and handling color on onChange event */}
                         <SketchPicker
@@ -375,6 +376,7 @@ function Experience() {
                 )}
                 {/* Photo Capture END */}
             </Grid>
+            <Footer />
         </>
     );
 }

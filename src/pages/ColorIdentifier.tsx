@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Grid";
 import { IconButton } from "@mui/material";
 import PhotoCameraRoundedIcon from "@mui/icons-material/PhotoCameraRounded";
+import Footer from "../components/Footer";
 
 // Color Identifier plugins
 import { FastAverageColor } from "fast-average-color";
@@ -51,93 +52,96 @@ function ColorIdentifier() {
     };
 
     return (
-        <div className="h-full text-center p-[24px]">
-            <Container maxWidth="xl">
-                <Grid container>
-                    <Grid item xs={12}>
-                        {/* Media Upload */}
-                        <h1 className="text-3xl font-bold align-text-bottom indieFlower">
-                            Choose a media type:&nbsp;
-                        </h1>
-                        <div>
-                            <input
-                                id="media-input"
-                                className="hidden"
-                                type="file"
-                                capture="environment"
-                                onChange={(e) => handleCapture(e.target)}
-                            />
-                            <label
-                                htmlFor="media-input"
-                                className="block h-full"
-                            >
-                                <IconButton
-                                    color="primary"
-                                    aria-label="upload picture"
-                                    component="span"
-                                >
-                                    <PhotoCameraRoundedIcon
-                                        sx={{ fontSize: 50 }}
-                                        color="primary"
-                                    />
-                                </IconButton>
-                            </label>
-                        </div>
-                        {/* Media Upload END */}
-                        {/* Captured Media */}
-                        {source && (
-                            <Box
-                                display="flex"
-                                justifyContent="center"
-                                border={1}
-                                className="w-10/12 max-w-sm mx-auto mb-1"
-                            >
-                                <img
-                                    src={source}
-                                    alt={"snap"}
-                                    width="100%"
-                                    height="fit-content"
-                                ></img>
-                            </Box>
-                        )}
-                        {/* Captured Media END */}
-                    </Grid>
-
-                    {/* Media Response */}
-                    {source && (
-                        <Grid
-                            item
-                            xs={12}
-                            className="pt-1 border-t border-black"
-                        >
-                            <div
-                                style={{
-                                    backgroundColor: colorHex,
-                                    width: "50px",
-                                    height: "50px",
-                                    margin: "0px auto 5px",
-                                }}
-                            ></div>
-                            <h1 className="text-2xl font-bold indieFlower">
-                                The average color is
-                                <br />
-                                <span
-                                    style={{
-                                        color: colorHex,
-                                        backgroundColor: colorIsLight
-                                            ? "black"
-                                            : "white",
-                                    }}
-                                >
-                                    &nbsp;{colorName}&nbsp;
-                                </span>
+        <>
+            <div className="h-full text-center p-[24px]">
+                <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
+                    <Grid container>
+                        <Grid item xs={12}>
+                            {/* Media Upload */}
+                            <h1 className="text-3xl font-bold align-text-bottom indieFlower">
+                                Choose a media type:&nbsp;
                             </h1>
+                            <div>
+                                <input
+                                    id="media-input"
+                                    className="hidden"
+                                    type="file"
+                                    capture="environment"
+                                    onChange={(e) => handleCapture(e.target)}
+                                />
+                                <label
+                                    htmlFor="media-input"
+                                    className="block h-full"
+                                >
+                                    <IconButton
+                                        color="primary"
+                                        aria-label="upload picture"
+                                        component="span"
+                                    >
+                                        <PhotoCameraRoundedIcon
+                                            sx={{ fontSize: 50 }}
+                                            color="primary"
+                                        />
+                                    </IconButton>
+                                </label>
+                            </div>
+                            {/* Media Upload END */}
+                            {/* Captured Media */}
+                            {source && (
+                                <Box
+                                    display="flex"
+                                    justifyContent="center"
+                                    border={1}
+                                    className="w-10/12 max-w-sm mx-auto mb-1"
+                                >
+                                    <img
+                                        src={source}
+                                        alt={"snap"}
+                                        width="100%"
+                                        height="fit-content"
+                                    ></img>
+                                </Box>
+                            )}
+                            {/* Captured Media END */}
                         </Grid>
-                    )}
-                    {/* Media Response END */}
-                </Grid>
-            </Container>
-        </div>
+
+                        {/* Media Response */}
+                        {source && (
+                            <Grid
+                                item
+                                xs={12}
+                                className="pt-1 border-t border-black"
+                            >
+                                <div
+                                    style={{
+                                        backgroundColor: colorHex,
+                                        width: "50px",
+                                        height: "50px",
+                                        margin: "0px auto 5px",
+                                    }}
+                                ></div>
+                                <h1 className="text-2xl font-bold indieFlower">
+                                    The average color is
+                                    <br />
+                                    <span
+                                        style={{
+                                            color: colorHex,
+                                            backgroundColor: colorIsLight
+                                                ? "black"
+                                                : "white",
+                                        }}
+                                    >
+                                        &nbsp;{colorName}&nbsp;
+                                    </span>
+                                </h1>
+                            </Grid>
+                        )}
+                        {/* Media Response END */}
+                    </Grid>
+                </Container>
+            </div>
+            <Footer />
+        </>
     );
 }
 

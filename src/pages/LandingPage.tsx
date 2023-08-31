@@ -9,6 +9,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import Grid from "@mui/material/Grid";
 import Winners from "../img/winners.jpg";
 import Award from "../img/most-creative.jpg";
+import Footer from "../components/Footer";
 
 import {
     Card,
@@ -313,6 +314,7 @@ function LandingPage() {
                     ></iframe>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
