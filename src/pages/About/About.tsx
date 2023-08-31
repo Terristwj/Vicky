@@ -42,16 +42,36 @@ export default function About() {
                             justifyContent="center"
                             variant="h5"
                         >
-                            We have a colourblind person in our group. At first,
-                            we joked around about his colourblindness but the
-                            more we listened, the more we realised that the
-                            issues he faced were not light at all. What more,
-                            the colour rectifing glasses from enchroma cost over
-                            200 dollars which we thought was unreasonable since
-                            the ability to see colour should naturally be free
-                            for everybody. Thus we decided to build an
-                            accessible and free way for all colourblind people
-                            to be able to identify colours.
+                            <p>
+                                In our group, we're fortunate to have a member
+                                who experiences the world in a unique way due to
+                                colorblindness. Initially, we might have shared
+                                some lighthearted jokes about it, but as we
+                                truly began to listen and understand, it became
+                                clear that the challenges he faces are far from
+                                trivial.
+                            </p>
+                            <br />
+                            <p>
+                                What struck us even more was the realization
+                                that solutions like color-correcting glasses
+                                come with a hefty price tag of over 200 dollars.
+                                This seemed unjustifiable to us, as the ability
+                                to perceive colors should be a basic and freely
+                                accessible experience for everyone.
+                            </p>
+                            <br />
+                            <p>
+                                Motivated by this, we made a collective decision
+                                to take action. We are on a mission to create an
+                                accessible and no-cost solution that empowers
+                                every colorblind individual to effortlessly
+                                identify colors. Our belief is that this
+                                endeavor will not only enhance the lives of
+                                those with colorblindness but also contribute to
+                                a more inclusive and compassionate society for
+                                all.
+                            </p>
                         </Typography>
                     </Grid>
                 </Box>

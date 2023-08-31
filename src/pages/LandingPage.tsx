@@ -154,7 +154,7 @@ function LandingPage() {
                     Your Colourblind Asssistant
                 </div>
                 <div>
-                    <Link to="/">
+                    <Link to="/home">
                         <Button variant="contained">
                             Experience our Website Today
                         </Button>
