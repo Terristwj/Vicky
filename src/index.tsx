@@ -9,6 +9,8 @@ import "./index.css";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
+import { Analytics } from "@vercel/analytics/react";
+
 // if session store exists, update redux store
 if (sessionStorage.getItem("store")) {
     const sessionStore = JSON.parse(sessionStorage.getItem("store") || "{}");
@@ -22,6 +24,7 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <Router />
+            <Analytics />
         </Provider>
     </React.StrictMode>
 );
