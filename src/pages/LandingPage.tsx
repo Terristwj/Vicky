@@ -254,7 +254,7 @@ function LandingPage() {
                 <h2 className="mb-5 text-4xl font-bold text-center text-white">
                     <span className="montserrat">Video</span>
                 </h2>
-                <div className="w-[420px] h-[230px] md:w-[720px] md:h-[400px] lg:w-[950px] lg:h-[530px] mx-auto">
+                <div className="w-[380px] h-[210px] md:w-[720px] md:h-[400px] lg:w-[950px] lg:h-[530px] mx-auto">
                     <iframe
                         width="100%"
                         height="100%"
