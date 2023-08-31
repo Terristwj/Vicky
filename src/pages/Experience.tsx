@@ -363,6 +363,7 @@ function Experience() {
                                         startIcon={<DeleteIcon />}
                                         onClick={() => {
                                             setUrl(null);
+                                            setUrlFiltered(null);
                                         }}
                                     >
                                         Delete
