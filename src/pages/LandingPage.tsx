@@ -6,6 +6,10 @@ import Chip from "@mui/material/Chip";
 import CodeIcon from "@mui/icons-material/Code";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
+import Grid from "@mui/material/Grid";
+import Winners from "../img/winners.jpg";
+import Award from "../img/most-creative.jpg";
+
 import {
     Card,
     CardHeader,
@@ -136,6 +140,7 @@ const team = [
 function LandingPage() {
     return (
         <>
+            {/* Hero */}
             <div className="space-y-5 font-bold text-center pb-7 pt-14">
                 <div className="sm:space-y-5">
                     <h1 className={"text-8xl text-[#000000] indieFlower"}>
@@ -181,8 +186,10 @@ function LandingPage() {
                     />
                 </div>
             </div>
+            {/* Hero END */}
 
-            <div className="bg-gray-200 pb-7 px-18 pt-7">
+            {/* Team */}
+            <div className="bg-gray-200 pb-7 pt-7">
                 <h2 className="mb-5 text-4xl font-bold text-center">
                     <span className="montserrat">Dream Team</span> -&nbsp;
                     <span className="indieFlower">Meme Team</span>
@@ -240,6 +247,54 @@ function LandingPage() {
                     ))}
                 </div>
             </div>
+            {/* Team END */}
+
+            {/* Video */}
+            <div className="px-5 py-12 bg-gray-800">
+                <h2 className="mb-5 text-4xl font-bold text-center text-white">
+                    <span className="montserrat">Video</span>
+                </h2>
+                <div className="w-[420px] h-[230px] md:w-[720px] md:h-[400px] lg:w-[950px] lg:h-[530px] mx-auto">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/gTMW-ZFXwGg"
+                        title="Team Vicky ElLipsis HAckathon"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </div>
+            {/* Video END */}
+
+            {/* Photos */}
+            <div className="px-5 py-12 bg-gray-900">
+                <h2 className="mb-5 text-4xl font-bold text-center text-white">
+                    <span className="montserrat">Video</span>
+                    <span className="indieFlower"> and </span>
+                    <span className="montserrat">Award</span>
+                </h2>
+
+                <Grid container>
+                    <Grid xs={12} md={6} item>
+                        <img
+                            src={Winners}
+                            srcSet={Winners}
+                            loading="lazy"
+                            alt="Team Vicky"
+                        />
+                    </Grid>
+                    <Grid xs={12} md={6} item>
+                        <img
+                            src={Award}
+                            srcSet={Award}
+                            loading="lazy"
+                            alt="Most Creative Solution Award"
+                        />
+                    </Grid>
+                </Grid>
+            </div>
+            {/* Photos END */}
         </>
     );
 }
