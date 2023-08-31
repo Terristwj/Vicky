@@ -73,7 +73,7 @@ function Experience() {
     return (
         <>
             <Grid container className="px-[48px] py-[24px] items-center">
-                <Grid item xs={12} sx={{ minHeight: "100vh" }}>
+                <Grid item xs={12}>
                     <div className="flex justify-center gap-10 mb-[24px">
                         {/* Block Picker from react-color and handling color on onChange event */}
                         <SketchPicker

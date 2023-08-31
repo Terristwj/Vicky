@@ -54,7 +54,7 @@ function ColorIdentifier() {
     return (
         <>
             <div className="h-full text-center p-[24px]">
-                <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
+                <Container maxWidth="xl">
                     <Grid container>
                         <Grid item xs={12}>
                             {/* Media Upload */}
