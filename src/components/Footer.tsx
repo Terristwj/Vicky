@@ -51,7 +51,7 @@ export default function Footer() {
                         >
                             About Us
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" align="center">
                             {aboutUs}
                         </Typography>
                     </Grid>
